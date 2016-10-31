@@ -8,7 +8,7 @@ const posts = require('./routes/posts');
 
 // Set up database
 const mongoose = require('mongoose');
-// TODO: You need to write the line to connect to the mongo database
+mongoose.connect('mongodb://localhost/crud-blog')
 
 // Create our instance of our app
 const app = express();
