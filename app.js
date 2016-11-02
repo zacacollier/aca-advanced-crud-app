@@ -18,7 +18,8 @@ app.use(methodOverride('_method'));
 
 // Add middleware
 app.use(bodyParser.urlencoded({ extended: false }));
-// TODO: Add a comment here explaining, briefly, what bodyParser is doing to our request
+app.use(bodyParser.json());
+// interpret the body of a request to make it usable for our app
 
 // Set our views directory
 app.set('views', path.join(__dirname, 'views'));
@@ -27,13 +28,14 @@ app.set('view engine', 'ejs');
 // Set our directory for serving static files
 app.use(express.static('resources'));
 
-// Registering a simple route to redirect to '/posts'
-app.get('*', (req, res, next) => {
-  res.redirect('/posts');
-});
-
 // Register our routes
 // TODO: Register our `posts` routes name-spaced under '/posts'
+app.use('/posts', posts);
+
+// Registering a simple route to redirect to '/posts'
+app.get('/*', (req, res, next) => {
+  res.redirect('/posts');
+});
 
 const port = 3000;
 app.listen(port, () => {

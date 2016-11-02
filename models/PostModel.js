@@ -1,5 +1,11 @@
 const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-// TODO: Write your PostModel schema here
-// Hint: Don't for get to export it!
+const postModel = new Schema({
+  'author': String,
+  'title': String,
+  'date': String,
+  'body': String
+})
+
+module.exports = mongoose.model('post', postModel);

@@ -1,6 +1,33 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const mongoose = require('mongoose')
+const router = express.Router()
 
-// TODO: Add your routes to the route here.
+const TaskModel = require('../models/PostModel')
+const PostsController = require('../controllers/PostsController')
 
-module.exports = router;
+/*
+* GET
+*/
+router.get('/', PostsController.list);
+
+/*
+* GET ONE
+*/
+router.get('/:id', PostsController.show);
+
+/*
+* POST
+*/
+router.post('/', PostsController.create);
+
+/*
+* UPDATE
+*/
+router.put('/:id', PostsController.update);
+
+/*
+* DELETE
+*/
+router.delete('/:id', PostsController.remove);
+
+module.exports = router

@@ -2,7 +2,7 @@
   "name": "crud-app",
   "version": "1.0.0",
   "description": "A starter repo for the ACA Advanced Course CRUD application.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
+    "jquery": "^3.1.1",
     "method-override": "^2.3.6",
     "mongoose": "^4.5.8"
   },
