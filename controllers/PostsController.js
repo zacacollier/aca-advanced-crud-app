@@ -12,7 +12,7 @@ let PostsController = {
 
     show: function(req, res, next) {
       PostModel.findById(req.params.id).exec()
-      .then(match => res.render('posts', { match }))
+      .then(post => res.render('post', { post }))
       .catch(err => next(err))
     },
 
