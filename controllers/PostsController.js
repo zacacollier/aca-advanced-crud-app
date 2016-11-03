@@ -16,6 +16,11 @@ let PostsController = {
       .catch(err => next(err))
     },
 
+    form: function(req, res, next) {
+      res.render('post_form', {title: 'New Post'}).exec()
+      .catch(err => next(err))
+    },
+
     create: function(req, res, next) {
       let post = new PostModel({
         author: req.body.author,
@@ -24,8 +29,8 @@ let PostsController = {
         body: req.body.body
       })
       post.save()
-      .then(posts => res.render('posts', { posts }))
-      // .then(res.redirect('posts'))
+      // .then(posts => res.render('posts', { posts }))
+      .then(res.redirect('/posts'))
       .catch(err => next(err))
     },
 
