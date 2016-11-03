@@ -21,6 +21,13 @@ let PostsController = {
       .catch(err => next(err))
     },
 
+    edit: function(req, res, next) {
+      PostModel.findById({ _id: req.params.id }).exec()
+      .then(post => res.render('post_edit_form', { post }))
+    // {title: `Edit ${this._id}`}
+      .catch(err => next(err))
+    },
+
     create: function(req, res, next) {
       let post = new PostModel({
         _id: req.body.id,
@@ -37,10 +44,10 @@ let PostsController = {
 
     update: function(req, res, next) {
       PostModel.findByIdAndUpdate({ _id: req.params.id }, {
-        author: req.body.author,
-        title: req.body.title,
-        date: req.body.date,
-        body: req.body.body
+        author: req.body.author || posts.author,
+        title: req.body.title || posts.title,
+        date: req.body.date || posts.date,
+        body: req.body.body || posts.text
       }, { new: true }).exec()
       .then(res.redirect('/posts'))
       .catch(err => next(err))

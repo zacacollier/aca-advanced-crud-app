@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <form class="form-inline text-center" action="/<%= post.id %>?_method=UPDATE" method="POST">
+        <input class="form-control" type="text" placeholder="Author Name Here" name="author">
+        <input class="form-control" type="text" placeholder="Add a Title Here" name="title">
+        <input class="form-control" type="text" placeholder="Today's Date" name="date">
+        <input class="form-control" type="text" placeholder="Post Content Goes Here" name="body">
+        <input class="btn btn-default"type="submit" value=" + ">
+      </form>
+    </div>
+  </div>
+</body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+</html>

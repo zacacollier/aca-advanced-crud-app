@@ -26,6 +26,11 @@ router.get('/:id', PostsController.show);
 router.post('/new', PostsController.create);
 
 /*
+* EDIT
+*/
+router.get('/:id/edit', PostsController.edit);
+
+/*
 * UPDATE
 */
 router.put('/:id', PostsController.update);
