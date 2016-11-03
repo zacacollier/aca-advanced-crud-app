@@ -23,6 +23,7 @@ let PostsController = {
 
     create: function(req, res, next) {
       let post = new PostModel({
+        _id: req.body.id,
         author: req.body.author,
         title: req.body.title,
         date: req.body.date,
@@ -36,19 +37,18 @@ let PostsController = {
 
     update: function(req, res, next) {
       PostModel.findByIdAndUpdate({ _id: req.params.id }, {
-        author: req.body.author || posts.author,
-        title: req.body.title || posts.title,
-        date: req.body.date || posts.date,
-        body: req.body.body || posts.text
+        author: req.body.author,
+        title: req.body.title,
+        date: req.body.date,
+        body: req.body.body
       }, { new: true }).exec()
-      .then(posts => res.render(posts))
+      .then(res.redirect('/posts'))
       .catch(err => next(err))
     },
 
     remove: function(req, res, next) {
-      let id = req.params.id
-      PostModel.findByIdAndRemove({_id: id}).exec()
-      .then(posts => res.render(posts))
+      PostModel.findByIdAndRemove({_id: req.params.id}).exec()
+      .then(res.redirect('/posts'))
       .catch(err => next(err))
     }
 
