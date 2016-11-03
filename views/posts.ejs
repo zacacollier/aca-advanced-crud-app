@@ -22,11 +22,20 @@
                         <%= post.date %>
                         <%= post.body %>
                     </li>
-                    <form class="form-inline text-center" method="POST" action="/posts/<%= post._id %>?_method=DELETE">
-                      <button type="submit">Delete</button>
+                    <form class="form-inline text-center" method="GET" action="/posts/<%= post._id %>">
+                      <button type="submit">
+                       View
+                      </button>
                     </form>
                     <form class="form-inline text-center" method="GET" action="/posts/<%= post._id %>/edit">
-                      <button type="submit">Edit</button>
+                      <button type="submit">
+                       Edit
+                      </button>
+                    </form>
+                    <form class="form-inline text-center" method="POST" action="/posts/<%= post._id %>?_method=DELETE">
+                      <button type="submit">
+                       Delete
+                      </button>
                     </form>
                     <% }) %>
             </ul>
