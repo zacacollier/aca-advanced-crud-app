@@ -11,6 +11,11 @@ const PostsController = require('../controllers/PostsController')
 router.get('/', PostsController.list);
 
 /*
+ * POST
+ */
+router.post('/', PostsController.create);
+
+/*
 * GET 'new post' form
 */
 router.get('/new', PostsController.form);
@@ -19,11 +24,6 @@ router.get('/new', PostsController.form);
 * GET ONE
 */
 router.get('/:id', PostsController.show);
-
-/*
-* POST
-*/
-router.post('/new', PostsController.create);
 
 /*
 * EDIT
@@ -41,3 +41,4 @@ router.put('/:id', PostsController.update);
 router.delete('/:id', PostsController.remove);
 
 module.exports = router
+

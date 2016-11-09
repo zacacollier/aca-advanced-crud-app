@@ -22,6 +22,11 @@
                         <%= post.date %>
                         <%= post.body %>
                     </li>
+                    <form class="form-inline text-center" method="GET" action="/posts/new">
+                      <button type="submit">
+                       New 
+                      </button>
+                    </form>
                     <form class="form-inline text-center" method="GET" action="/posts/<%= post._id %>">
                       <button type="submit">
                        View

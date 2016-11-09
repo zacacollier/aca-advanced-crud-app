@@ -17,20 +17,17 @@ let PostsController = {
   },
 
   form: function(req, res, next) {
-    res.render('post_form', {title: 'New Post'}).exec()
-    .catch(err => next(err))
+    res.render('post_form', {title: 'New Post'})
   },
 
   create: function(req, res, next) {
     let post = new PostModel({
-      _id: req.body.id,
       author: req.body.author,
       title: req.body.title,
       date: req.body.date,
       body: req.body.body
     })
     post.save()
-    // .then(posts => res.render('posts', { posts }))
     .then(res.redirect('/posts'))
     .catch(err => next(err))
   },
@@ -48,7 +45,7 @@ let PostsController = {
       title: req.body.title,
       date: req.body.date,
       body: req.body.body
-    }, { new: true, runValidators: true  }).exec()
+    }, { new: true, runValidators: true }).exec()
     .then(res.redirect('/posts'))
     .catch(err => next(err))
   },
