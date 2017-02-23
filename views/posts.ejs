@@ -8,47 +8,65 @@
     <title>
         Blog
     </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha256-rr9hHBQ43H7HSOmmNkxzQGazS/Khx+L8ZRHteEY1tQ4=" crossorigin="anonymous" />
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <ul class="col-xs-6 col-xs-push-3 text-center list-group">
+        <div class="row justify-content-center">
+            <ul class="col text-center list-group justify-content-center">
+              <hr>
                 <% posts.forEach(function(post) { %>
                     <li class="list-group-item">
-                        <%= post.author %>
-                        <%= post.title %>
-                        <%= post.date %>
-                        <%= post.body %>
+                      <div class="row justify-content-center">
+                        <li class="list-group-item">
+                          <h1>
+                          "<%= post.title %>"
+                          </h2>
+                          <hr>
+                          <h4 style="display-4">
+                            <em>by <%= post.author %></em>
+                          </h4>
+                        <li class="list-group-item">
+                          <p><%= post.body %></p>
+                          <hr>
+                          <p><%= post.date %></p>
+                        </li>
+                        </li>
+                      </div>
+                      <hr>
                     </li>
-                    <form class="form-inline text-center" method="GET" action="/posts/new">
-                      <button type="submit">
-                       New 
-                      </button>
-                    </form>
-                    <form class="form-inline text-center" method="GET" action="/posts/<%= post._id %>">
-                      <button type="submit">
-                       View
-                      </button>
-                    </form>
-                    <form class="form-inline text-center" method="GET" action="/posts/<%= post._id %>/edit">
-                      <button type="submit">
-                       Edit
-                      </button>
-                    </form>
-                    <form class="form-inline text-center" method="POST" action="/posts/<%= post._id %>?_method=DELETE">
-                      <button type="submit">
-                       Delete
-                      </button>
-                    </form>
+                    <div class="row justify-content-center">
+                      <div class="btn-group justify-content-center" role="group">
+                        <form  method="GET" action="/posts/new">
+                          <button class="btn btn-secondary alert-info" type="submit">
+                           New Post
+                          </button>
+                        </form>
+                        <form  method="GET" action="/posts/<%= post._id %>">
+                          <button class="btn btn-secondary alert-info" type="submit">
+                           View Full Post
+                          </button>
+                        </form>
+                        <form  method="GET" action="/posts/<%= post._id %>/edit">
+                          <button class="btn btn-secondary alert-warning" type="submit">
+                           Edit this Post
+                          </button>
+                        </form>
+                        <form " method="POST" action="/posts/<%= post._id %>?_method=DELETE">
+                          <button class="btn btn-secondary alert-danger" type="submit">
+                           Delete this Post
+                          </button>
+                        </form>
+                      </div>
+                    </div>
                     <% }) %>
-            </ul>
+              </ul>
         </div>
     </div>
     <!-- /container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha256-+kIbbrvS+0dNOjhmQJzmwe/RILR/8lb/+4+PUNVW09k=" crossorigin="anonymous"></script>
 </body>
 
 </html>
