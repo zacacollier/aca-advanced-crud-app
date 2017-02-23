@@ -1,7 +1,5 @@
-# CRUD APP
-A starter repo for the ACA Advanced Course CRUD application.
+# CRUD Blog
 
-## What you're starting with
-To ease the work load for you we've gone ahead and included some basic scaffolding and dependencies.  It will be up to you to fill in the missing pieces and all of the application logic.
+A simple Express-based CRUD blog to showcase server-side rendering with EJS templates. I used Mongoose to write schemae and controllers for handling Create and Update requests to MongoDB. Used Bootstrap 4 styles.
 
-Good luck!
+Haven't migrated the DB to a deployment platform - but here are some screenshots:
