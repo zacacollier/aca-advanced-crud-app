@@ -18,8 +18,8 @@
             <ul id="overrides" class="col text-center list-group justify-content-center">
               <hr>
                 <% posts.forEach(function(post) { %>
-                    <li class="row list-group-item gutter" style="background-color: gainsboro">
-                      <div class="row justify-content-center">
+                    <li class="container list-group-item gutter" style="background-color: gainsboro">
+                      <li class="row justify-content-center">
                         <li class="list-group-item">
                           <h1>
                           "<%= post.title %>"
@@ -34,34 +34,37 @@
                           <p><%= post.date %></p>
                         </li>
                         </li>
-                      </div>
+                      </li>
+                      <hr>
+                      <li class="row justify-content-center">
+                        <li class="col btn-group justify-content-center" role="group">
+                          <form  method="GET" action="/posts/new">
+                            <button class="btn btn-secondary alert-info" type="submit">
+                             New Post
+                            </button>
+                          </form>
+                          <form  method="GET" action="/posts/<%= post._id %>">
+                            <button class="btn btn-secondary alert-info" type="submit">
+                             View Full Post
+                            </button>
+                          </form>
+                          <form  method="GET" action="/posts/<%= post._id %>/edit">
+                            <button class="btn btn-secondary alert-warning" type="submit">
+                             Edit this Post
+                            </button>
+                          </form>
+                          <form " method="POST" action="/posts/<%= post._id %>?_method=DELETE">
+                            <button class="btn btn-secondary alert-danger" type="submit">
+                             Delete this Post
+                            </button>
+                          </form>
+                        </li>
+                      <br>
+                      <br>
+                      <hr>
+                      </li>
                       <hr>
                     </li>
-                    <div class="row justify-content-center">
-                      <div class="col btn-group justify-content-center" role="group">
-                        <form  method="GET" action="/posts/new">
-                          <button class="btn btn-secondary alert-info" type="submit">
-                           New Post
-                          </button>
-                        </form>
-                        <form  method="GET" action="/posts/<%= post._id %>">
-                          <button class="btn btn-secondary alert-info" type="submit">
-                           View Full Post
-                          </button>
-                        </form>
-                        <form  method="GET" action="/posts/<%= post._id %>/edit">
-                          <button class="btn btn-secondary alert-warning" type="submit">
-                           Edit this Post
-                          </button>
-                        </form>
-                        <form " method="POST" action="/posts/<%= post._id %>?_method=DELETE">
-                          <button class="btn btn-secondary alert-danger" type="submit">
-                           Delete this Post
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                    <hr>
                     <% }) %>
               </ul>
         </div>
